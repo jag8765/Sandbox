@@ -29,22 +29,23 @@ const NewGame = () => {
 
   return (
     <div className="App">
-          <p></p>
+          <p>Be sure to save the below info!</p>
+
           <form onSubmit={e => handleSubmit(e)}>
             <input type="submit" id="submit-button" value="New Game" style={
               { width: "120px", height: "50px", fontSize: 20, fontWeight: 'bold'}
             }></input>
           </form>
 
-          {isSubmitted === true && result['data']['player1_id'] != null &&
+          {isSubmitted === true && result && result['data']['player1_id'] != null &&
               <p>Player 1 ID: {(String(result['data']['player1_id']))}</p>
           }
 
-            {isSubmitted === true && result['data']['player2_id'] != null &&
+            {isSubmitted === true && result && result['data']['player2_id'] != null &&
               <p>Player 2 ID: {(String(result['data']['player2_id']))}</p>
             }
 
-            {isSubmitted === true && result['data']['max_games'] === true &&
+            {isSubmitted === true && result && result['data']['max_games'] === true &&
               <p>Too many ongoing games! Try again later...</p>
             }
     </div>
